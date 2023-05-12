@@ -4,7 +4,7 @@ from modelo.categoria import Categoria
 class IncrementoDecremento:
     def __init__(self) -> None:
         pass
-    
+
 def comprobacion(self,text) -> str:
     if len(text) <= 1:
         return ""
@@ -20,4 +20,4 @@ def comprobacion(self,text) -> str:
 def generacionToken(self,text) -> Token:
     var = self.comprobacion(text)
 
-    return Token(var, Categoria.OPERADOR_INCREMENTODECREMENTO)
+    return Token(var, Categoria.OPERADOR_INCREMENTO_DECREMENTO)

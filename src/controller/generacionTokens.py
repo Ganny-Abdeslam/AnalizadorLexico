@@ -4,6 +4,7 @@ from modelo.finSentencia import FinSentencia
 from modelo.aritmeticos import Aritmeticos
 from modelo.logicos import Logicos
 from modelo.incrementoDecremento import IncrementoDecremento
+from modelo.separador import Separador
 
 class GeneracionTokens():
     def __init__(self) -> None:
@@ -50,8 +51,12 @@ class GeneracionTokens():
         if text[0] == '+' or text[0] == "-":
             if self.acumlacionToken(dato, text):
                 return
-            
         
+        dato = Separador()
+        
+        if text[0] == ',':
+            if self.acumlacionToken(dato, text):
+                return
 
         #Token(var, Categoria.NO_RECONOCIDO)
         self.generacionTokens(text[1:])
