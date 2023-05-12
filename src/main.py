@@ -9,8 +9,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication([])
 
     widget = MyWidget(Categoria.COMENTARIO_BLOQUE.getString())
-    widget.resize(800, 600)
-    widget.show()
 
     widget.resize(600, 400)
     widget.show()
