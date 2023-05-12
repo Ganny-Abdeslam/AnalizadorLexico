@@ -1,7 +1,6 @@
 from modelo.token import Token
 from modelo.categoria import Categoria
 
-
 class OperadorRelacional:
     def __init__(self) -> None:
         pass
