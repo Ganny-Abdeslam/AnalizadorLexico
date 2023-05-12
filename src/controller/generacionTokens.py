@@ -1,3 +1,4 @@
+from modelo.palabrasReservadas import PalabrasReservadas
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
 from modelo.finSentencia import FinSentencia
@@ -19,6 +20,13 @@ class GeneracionTokens():
         if len(text) == 0 :
             return
         
+        
+        dato = PalabrasReservadas()
+        
+        if text[0].isalpha() :
+            if self.acumlacionToken(dato, text):
+                return
+
         # Generador de tokens de numeros enteros y reales
         dato = Entero()
 
