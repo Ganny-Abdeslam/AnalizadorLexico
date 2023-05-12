@@ -7,6 +7,8 @@ from modelo.logicos import Logicos
 from modelo.incrementoDecremento import IncrementoDecremento
 from modelo.separador import Separador
 from modelo.relacionales import OperadorRelacional
+from modelo.asignacion import OperadorAsignacion
+from modelo.apertura_cierre import Apertura_Cierre
 
 # Clase encargada de la identificación y creación de los tokens del texto ingresado por el susuario
 class GeneracionTokens():
@@ -81,6 +83,18 @@ class GeneracionTokens():
         #< , >, >= , <= , == , !=, ~=
 
         if text[0] == '<' or text[0] == '>' or text[0] == '>=' or text[0] == '<=' or text[0] == '=' or text[0] == '!' or text[0] == '~':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        dato = OperadorAsignacion()
+
+        if text[0] == ':':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        dato = Apertura_Cierre()
+
+        if text[0] == '(' or text[0] == ')' or text[0] == '[' or text[0] == ']' or text[0] == '{' or text[0] == '}':
             if self.acumlacionToken(dato, text):
                 return
         
