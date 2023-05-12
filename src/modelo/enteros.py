@@ -30,11 +30,11 @@ class Entero:
     def generacionToken(self, num) -> Token:
         var = self.comprobacion(num)
 
-        if num[len(var)-1].isalpha:
+        if len(num) > len(var) and num[len(var)].isalpha() :
             return Token("", Categoria.NO_RECONOCIDO)
 
-        if "." in var:
+        if "." in var :
             return Token(var, Categoria.DECIMAL)
 
-        elif len(var) != 0:
+        elif len(var) != 0 :
             return Token(var, Categoria.ENTERO)
