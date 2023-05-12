@@ -1,3 +1,4 @@
+from modelo.palabrasReservadas import PalabrasReservadas
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
 
@@ -10,6 +11,13 @@ class GeneracionTokens():
 
         if len(text) == 0 :
             return
+        
+        dato = PalabrasReservadas()
+        
+        if text[0].isalpha() :
+            if self.acumlacionToken(dato, text):
+                return
+
         
         dato = Entero()
 
