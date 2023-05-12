@@ -1,6 +1,6 @@
 from PySide6 import QtCore, QtWidgets
 
-from modelo.enteros import Entero
+from controller.generacionTokens import GeneracionTokens
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self, text) -> None:
@@ -18,9 +18,12 @@ class MyWidget(QtWidgets.QWidget):
 
         self.button.clicked.connect(self.magic)
 
+    
+
     @QtCore.Slot()
     def magic(self):
-        dato = Entero()
-        text = str(self.label.text())
 
-        self.text.setText(dato.generacionToken(text).imprimir())
+        tokensImprimir = GeneracionTokens()
+        tokensImprimir.generacionTokens(str(self.label.text()))
+
+        self.text.setText('\n'.join(tokensImprimir.imprimir()))

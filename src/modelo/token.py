@@ -7,3 +7,6 @@ class Token():
 
     def imprimir(self) -> str:
         return self.categoria.getString() + ": " + self.palabra
+    
+    def getPalabra(self) -> str:
+        return self.palabra
