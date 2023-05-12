@@ -1,5 +1,6 @@
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
+from modelo.relacionales import OperadorRelacional
 
 class GeneracionTokens():
     def __init__(self) -> None:
@@ -22,7 +23,14 @@ class GeneracionTokens():
         if text[0].isalpha() :
             if self.acumlacionToken(dato, text):
                 return
+            
+        dato = OperadorRelacional()
+        #< , >, >= , <= , == , !=, ~=
 
+        if text[0] == '<' or text[0] == '>' or text[0] == '>=' or text[0] == '<=' or text[0] == '=' or text[0] == '!' or text[0] == '~':
+            if self.acumlacionToken(dato, text):
+                return
+        
         #Token(var, Categoria.NO_RECONOCIDO)
         self.generacionTokens(text[1:])
 
