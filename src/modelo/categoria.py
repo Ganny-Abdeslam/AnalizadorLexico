@@ -13,6 +13,7 @@ class Categoria(Enum):
     OPERADOR_RELACIONAL = "OPERADOR_RELACIONAL"
     OPERADOR_LOGICO = "OPERADOR_LOGICO"
     OPERADOR_INCREMENTO = "OPERADOR_INCREMENTO"
+    FIN_SENTENCIA = "FIN_SENTENCIA"
 
     def getString(self):
         return self.name

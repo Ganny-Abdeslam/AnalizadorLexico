@@ -1,5 +1,6 @@
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
+from modelo.finSentencia import FinSentencia
 
 class GeneracionTokens():
     def __init__(self) -> None:
@@ -20,6 +21,12 @@ class GeneracionTokens():
         dato = Identificardor()
 
         if text[0].isalpha() :
+            if self.acumlacionToken(dato, text):
+                return
+        
+        dato = FinSentencia()
+
+        if text[0] == '¬':
             if self.acumlacionToken(dato, text):
                 return
 
