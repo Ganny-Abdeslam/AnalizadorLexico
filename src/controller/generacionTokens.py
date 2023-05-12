@@ -1,6 +1,9 @@
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
 from modelo.finSentencia import FinSentencia
+from modelo.aritmeticos import Aritmeticos
+from modelo.logicos import Logicos
+from modelo.incrementoDecremento import IncrementoDecremento
 
 class GeneracionTokens():
     def __init__(self) -> None:
@@ -29,6 +32,26 @@ class GeneracionTokens():
         if text[0] == '¬':
             if self.acumlacionToken(dato, text):
                 return
+        
+        dato = Aritmeticos()
+
+        if text[0] == '+' or text[0] == '-' or text[0] == '*' or text[0] == '/' or text[0] =='%' or text[0] == '^':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        dato = Logicos()
+
+        if text[0] == '&' or text[0] == '!':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        dato = IncrementoDecremento()
+
+        if text[0] == '+' or text[0] == "-":
+            if self.acumlacionToken(dato, text):
+                return
+            
+        
 
         #Token(var, Categoria.NO_RECONOCIDO)
         self.generacionTokens(text[1:])
