@@ -6,6 +6,7 @@ class Token():
         self.palabra = palabra
         self.categoria = categoria
 
+    # Método para imprimir los tokens
     def imprimir(self) -> str:
         return self.categoria.getString() + ": " + self.palabra
     
