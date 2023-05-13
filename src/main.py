@@ -4,7 +4,7 @@ from interface.interfaz import MyWidget
 
 from modelo.categoria import Categoria
 
-# Se inicializa la interfaz
+# Se inicializa la aplicación
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
 
