@@ -4,6 +4,7 @@ class Categoria(Enum):
     NO_RECONOCIDO = "NO_RECONOCIDO"
     ENTERO = "ENTERO"
     DECIMAL = "DECIMAL"
+    HEXADECIMAL = "HEXADECIMAL"
     IDENTIFICADOR = "IDENTIFICADOR"
     PALABRA_RESERVADA = "PALABRA_RESERVADA"
     CADENA_CARACTERES = "CADENA_CARACTERES"
@@ -17,4 +18,4 @@ class Categoria(Enum):
     APERTURA_CIERRE = "APERTURA_CIERRE"
 
     def getString(self):
-        return self.name
+        return self.value

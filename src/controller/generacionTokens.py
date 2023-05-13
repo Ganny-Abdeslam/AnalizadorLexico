@@ -1,4 +1,5 @@
 from modelo.palabrasReservadas import PalabrasReservadas
+from modelo.hexadecimales import Hexadecimal
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
 from modelo.relacionales import OperadorRelacional
@@ -21,6 +22,11 @@ class GeneracionTokens():
             if self.acumlacionToken(dato, text):
                 return
 
+        dato = Hexadecimal()
+        
+        if text[0].isdigit() or text[0] in 'ABCDEF':
+            if self.acumlacionToken(dato, text):
+                return
         
         dato = Entero()
 
