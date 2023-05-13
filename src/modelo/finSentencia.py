@@ -1,6 +1,7 @@
 from modelo.token import Token
 from modelo.categoria import Categoria
 
+# Clase del token de fin de sentencia (¬)
 class FinSentencia:
     def __init__(self) -> None:
         pass

@@ -1,6 +1,7 @@
 from modelo.token import Token
 from modelo.categoria import Categoria
 
+# Clase del token del separador
 class Separador:
     def __init__(self) -> None:
         pass

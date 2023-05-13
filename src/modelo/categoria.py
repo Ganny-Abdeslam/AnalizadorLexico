@@ -1,5 +1,6 @@
 from enum import Enum 
 
+# Clase de las categorias: Enumeración de los tokens (listado de tokens)
 class Categoria(Enum):
     NO_RECONOCIDO = "NO_RECONOCIDO"
     ENTERO = "ENTERO"
