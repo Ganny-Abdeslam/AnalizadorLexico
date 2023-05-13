@@ -79,19 +79,22 @@ class GeneracionTokens():
             if self.acumlacionToken(dato, text):
                 return
             
+        
+        #Hace el llamado a la clase OperadorRelacional para validar si el operador es correcto.  
         dato = OperadorRelacional()
-        #< , >, >= , <= , == , !=, ~=
 
         if text[0] == '<' or text[0] == '>' or text[0] == '>=' or text[0] == '<=' or text[0] == '=' or text[0] == '!' or text[0] == '~':
             if self.acumlacionToken(dato, text):
                 return
             
+        #Hace el llamado a la clase OperadorAsignacion para validar si el operador es correcto.   
         dato = OperadorAsignacion()
 
         if text[0] == ':':
             if self.acumlacionToken(dato, text):
                 return
             
+        #Hace el llamado a la clase Apertura_Cierre para validar si el operador es correcto.       
         dato = Apertura_Cierre()
 
         if text[0] == '(' or text[0] == ')' or text[0] == '[' or text[0] == ']' or text[0] == '{' or text[0] == '}':
