@@ -1,6 +1,9 @@
 from modelo.palabrasReservadas import PalabrasReservadas
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
+from modelo.relacionales import OperadorRelacional
+from modelo.asignacion import OperadorAsignacion
+from modelo.apertura_cierre import Apertura_Cierre
 
 class GeneracionTokens():
     def __init__(self) -> None:
@@ -30,7 +33,29 @@ class GeneracionTokens():
         if text[0].isalpha() :
             if self.acumlacionToken(dato, text):
                 return
+            
+        
+        #Hace el llamado a la clase OperadorRelacional para validar si el operador es correcto.  
+        dato = OperadorRelacional()
 
+        if text[0] == '<' or text[0] == '>' or text[0] == '>=' or text[0] == '<=' or text[0] == '=' or text[0] == '!' or text[0] == '~':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        #Hace el llamado a la clase OperadorAsignacion para validar si el operador es correcto.   
+        dato = OperadorAsignacion()
+
+        if text[0] == ':':
+            if self.acumlacionToken(dato, text):
+                return
+            
+        #Hace el llamado a la clase Apertura_Cierre para validar si el operador es correcto.       
+        dato = Apertura_Cierre()
+
+        if text[0] == '(' or text[0] == ')' or text[0] == '[' or text[0] == ']' or text[0] == '{' or text[0] == '}':
+            if self.acumlacionToken(dato, text):
+                return
+        
         #Token(var, Categoria.NO_RECONOCIDO)
         self.generacionTokens(text[1:])
 
