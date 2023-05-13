@@ -1,4 +1,5 @@
 from modelo.palabrasReservadas import PalabrasReservadas
+from modelo.hexadecimales import Hexadecimal
 from modelo.enteros import Entero
 from modelo.identificadores import Identificardor
 from modelo.finSentencia import FinSentencia
@@ -30,7 +31,16 @@ class GeneracionTokens():
             if self.acumlacionToken(dato, text):
                 return
 
+<<<<<<< HEAD
         # Generador de tokens de numeros enteros y reales
+=======
+        dato = Hexadecimal()
+        
+        if text[0].isdigit() or text[0] in 'ABCDEF':
+            if self.acumlacionToken(dato, text):
+                return
+        
+>>>>>>> e076a73 (Inclusion del Hexadecimal)
         dato = Entero()
 
         if text[0].isdigit() :
