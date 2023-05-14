@@ -6,7 +6,7 @@ from modelo.categoria import Categoria
 class Entero:
     def __init__(self) -> None:
         pass
-    
+
     def comprobacion(self, num) -> str:
 
         # Comprobación si la cadena está vacía
@@ -21,6 +21,7 @@ class Entero:
         elif num[0] == '.':
             if len(num) <= 1:
                 return ""
+            
             # Comprobación si lo que se encuentra en la siguiente posición no es un digito
             if not(num[1].isdigit()):
                 return ""
@@ -36,13 +37,13 @@ class Entero:
         var = self.comprobacion(num)
 
         # Si el símbolo es alfabético
-        if num[len(var)-1].isalpha():
+        if len(num) > len(var) and num[len(var)].isalpha() :
             return Token("", Categoria.NO_RECONOCIDO)
 
         # Si el símbolo es un punto
-        if "." in var:
+        if "." in var :
             return Token(var, Categoria.DECIMAL)
 
         # Si la cadena no está vacia
-        elif len(var) != 0:
+        elif len(var) != 0 :
             return Token(var, Categoria.ENTERO)

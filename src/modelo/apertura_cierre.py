@@ -27,4 +27,3 @@ class Apertura_Cierre:
         var = self.comprobacion(text)
 
         return Token(var, Categoria.APERTURA_CIERRE)
-

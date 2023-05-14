@@ -10,6 +10,9 @@ from modelo.separador import Separador
 from modelo.relacionales import OperadorRelacional
 from modelo.asignacion import OperadorAsignacion
 from modelo.apertura_cierre import Apertura_Cierre
+from modelo.cadenaCaracteres import CadenaCaracteres
+from modelo.comentario import Comentario
+from modelo.noReconocido import NoReconocido
 
 # Clase encargada de la identificación y creación de los tokens del texto ingresado por el susuario
 class GeneracionTokens():
@@ -23,7 +26,6 @@ class GeneracionTokens():
         # Texto vacio
         if len(text) == 0 :
             return
-        
         
         dato = PalabrasReservadas()
         
@@ -107,8 +109,24 @@ class GeneracionTokens():
         if text[0] in '()[]{}':
             if self.acumulacionToken(dato, text):
                 return
+            
+        dato = CadenaCaracteres()
+
+        if text[0] == '$':
+            self.acumulacionToken(dato, text)
+            return
         
-        #Token(var, Categoria.NO_RECONOCIDO)
+        dato = Comentario()
+
+        if text[0] == '?':
+            if self.acumulacionToken(dato, text):
+                return
+        
+        dato = NoReconocido()
+
+        if self.acumulacionToken(dato, text):
+            return
+        
         self.generacionTokens(text[1:])
 
     # Metodo que llama al metodo de generacion de tokens y los guarda en una lista
