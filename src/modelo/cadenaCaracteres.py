@@ -12,22 +12,25 @@ class CadenaCaracteres:
     def comprobacion(self,text) -> str:
 
         
-        # En el primer if valida el tamaño de la cadena, y que el primer caracter sea un "$"  
-        # si se cumple retorna una cadena vacia. 
-
-        if len(text) <= 0 or text[0] == '$':
+        # En el primer if valida el tamaño de la cadena si se cumple retorna una cadena vacia. 
+        if len(text) <= 0:
             return ""
         
-        # Retorna la cadena en la posicion cero y una llamada recursiva con el resto de la cadena.
+        #Que el ultimo caracter sea un "$"  
+        if text[0] == '$':
+            return text[0]
         
+        # Retorna la cadena en la posicion cero y una llamada recursiva con el resto de la cadena.
         return text[0] + self.comprobacion(text[1:])
 
     # Metodo para generar el token y comprobar que tipo de token es.
-
     def generacionToken(self,text) -> Token:
         if len(text) <= 1:
-            return Token("", Categoria.NO_RECONOCIDO)    
+            return Token("", Categoria.NO_RECONOCIDO)
         
         var = self.comprobacion(text[1:])
 
-        return Token("$" + var + "$", Categoria.CADENA_CARACTERES)
+        if not(var[len(var)-1] == '$'):
+            return Token("", Categoria.NO_RECONOCIDO)
+
+        return Token("$" + var, Categoria.CADENA_CARACTERES)

@@ -117,8 +117,8 @@ class GeneracionTokens():
         dato = CadenaCaracteres()
 
         if text[0] == '$':
-            self.acumulacionToken(dato, text)
-            return
+            if self.acumulacionToken(dato, text):
+                return
         
         dato = Comentario()
 
