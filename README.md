@@ -43,7 +43,9 @@ MyFirst es un lenguaje inventado, el cual sigue utiliza diversos okens que se en
 Los Tokens fueron creados usando como base Automatas Finitos Deterministas (AFD),con los cuales se creó una función que lee caracter a caracter el texto ingresado por el usuario con el fin de ide ntificar léxicamnete la composición del escrito con relación al lenguaje MyFirst.
 
 Los automatas de cada uno de los tokens se pueden apreciar a través del siguiente enlace a Google Drive:
-`https://drive.google.com/file/d/15Pt8N8n13txvWVY6DjSxfleNKxRUBYbv/view?usp=sharing`
+```
+https://drive.google.com/file/d/15Pt8N8n13txvWVY6DjSxfleNKxRUBYbv/view?usp=sharing
+```
 ## Autores
 El proyecto fue realizado por estudiantes del programa de Ingenieria de Sistemas y Computación de la Universidad del Quindío en Colombia para la asignatura de Teoría de Lenguajes Formales.
 ```
