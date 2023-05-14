@@ -12,7 +12,7 @@ class NoReconocido:
         # En el primer if valida el tamaño de la cadena, y algunos caracteres que SI se reconocen, y retorna una
         # cadena vacia ya que no es un error como tal.
 
-        if len(text) <= 0 or text[0] in '><=!~+-*/%^,()[]{}:&¬ \n':
+        if len(text) <= 0 or text[0] in '><=!+-*/%^,()[]{}:&¬ \n':
             return ""
         
         # Retorna la cadena en la posicion cero y una llamada recursiva con el resto de la cadena.
