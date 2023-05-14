@@ -28,108 +28,91 @@ class GeneracionTokens():
         dato = PalabrasReservadas()
         
         if text[0].isalpha() :
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
 
-<<<<<<< HEAD
-        # Generador de tokens de numeros enteros y reales
-=======
         dato = Hexadecimal()
         
         if text[0].isdigit() or text[0] in 'ABCDEF':
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
         
->>>>>>> e076a73 (Inclusion del Hexadecimal)
         dato = Entero()
 
         if text[0].isdigit() :
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
         
         # Generador de tokens de identificadores
         dato = Identificardor()
 
         if text[0].isalpha() :
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
         
         # Generador de tokens de fin de sentencia (¬)
         dato = FinSentencia()
 
         if text[0] == '¬':
-<<<<<<< HEAD
-            if self.acumlacionToken(dato, text):
-=======
-            if self.acumulacion(dato, text):
-                return
-            
-        dato = IncrementoDecremento()
-
-        if text[0] in "+-":
-            if self.acumulacion(dato, text):
->>>>>>> fcf14d1 (Union de todas menos respaldo)
+            if self.acumulacionToken(dato, text):
                 return
         
+
+        # Generador de tokens de operadores de incremento y decremento (++ --)
+        dato = IncrementoDecremento()
+
+        if text[0] in '+-':
+            if self.acumulacionToken(dato, text):
+                return
+
         # Generador de tokens de operadores aritmeticos (+ - / % ^)
         dato = Aritmeticos()
 
-        if text[0] == '+' or text[0] == '-' or text[0] == '*' or text[0] == '/' or text[0] =='%' or text[0] == '^':
-            if self.acumulacion(dato, text):
+        if text[0] in '+-*/%^':
+            if self.acumulacionToken(dato, text):
                 return
             
         # Generador de tokens de operadores lógicos (& &| !)    
         dato = Logicos()
 
-        if text[0] == '&' or text[0] == '!':
-            if self.acumulacion(dato, text):
-                return
-        
-        # Generador de tokens de operadores de incremento y decremento (++ --)
-        dato = IncrementoDecremento()
-
-        if text[0] == '+' or text[0] == "-":
-            if self.acumlacionToken(dato, text):
+        if text[0] in '&!':
+            if self.acumulacionToken(dato, text):
                 return
         
         # Generador de tokens de separador (,)
         dato = Separador()
         
         if text[0] == ',':
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
             
         
         #Hace el llamado a la clase OperadorRelacional para validar si el operador es correcto.  
         dato = OperadorRelacional()
 
-        if text[0] == '<' or text[0] == '>' or text[0] == '>=' or text[0] == '<=' or text[0] == '=' or text[0] == '!' or text[0] == '~':
-            if self.acumulacion(dato, text):
+        if text[0] in '<>=!\~':
+            if self.acumulacionToken(dato, text):
                 return
             
         #Hace el llamado a la clase OperadorAsignacion para validar si el operador es correcto.   
         dato = OperadorAsignacion()
 
         if text[0] == ':':
-            if self.acumulacion(dato, text):
+            if self.acumulacionToken(dato, text):
                 return
             
         #Hace el llamado a la clase Apertura_Cierre para validar si el operador es correcto.       
         dato = Apertura_Cierre()
 
-        if text[0] == '(' or text[0] == ')' or text[0] == '[' or text[0] == ']' or text[0] == '{' or text[0] == '}':
-            if self.acumulacion(dato, text):
+        if text[0] in '()[]{}':
+            if self.acumulacionToken(dato, text):
                 return
         
         #Token(var, Categoria.NO_RECONOCIDO)
         self.generacionTokens(text[1:])
 
-<<<<<<< HEAD
     # Metodo que llama al metodo de generacion de tokens y los guarda en una lista
-    def acumlacionToken(self, dato, text) -> bool:
-=======
-    def acumulacion(self, dato, text) -> bool:
->>>>>>> fcf14d1 (Union de todas menos respaldo)
+    def acumulacionToken(self, dato, text) -> bool:
             token = dato.generacionToken(text)
 
             if len(token.getPalabra()) == 0 :

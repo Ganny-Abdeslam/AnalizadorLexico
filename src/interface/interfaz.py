@@ -8,7 +8,7 @@ class MyWidget(QtWidgets.QWidget):
         super().__init__()
 
         # Cuadro para el ingreso del texto
-        self.label = QtWidgets.QLineEdit("Write here")
+        self.label = QtWidgets.QTextEdit("Write here")
 
         # Botón y texto donde se presentarán los tokens
         self.button = QtWidgets.QPushButton("Click me!")
@@ -31,6 +31,6 @@ class MyWidget(QtWidgets.QWidget):
     def magic(self):
 
         tokensImprimir = GeneracionTokens()
-        tokensImprimir.generacionTokens(str(self.label.text()))
+        tokensImprimir.generacionTokens(str(self.label.toPlainText()))
 
         self.text.setText('\n'.join(tokensImprimir.imprimir()))
