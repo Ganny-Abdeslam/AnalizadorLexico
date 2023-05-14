@@ -40,7 +40,7 @@ MyFirst es un lenguaje inventado, el cual sigue utiliza diversos okens que se en
 13. Comentarios en una linea.
     - `??`
 ## Funcionamiento
-Los Tokens fueron creados usando como base Automatas Finitos Deterministas (AFD), con los cuales se creó una función que lee caracter a caracter el texto ingresado por el usuario con el fin de identificar léxicamnete la composición del escrito con relación al lenguaje MyFirst.
+Los Tokens fueron creados usando como base Automatas Finitos Deterministas (AFD), con los cuales se crearon una seríe de métodos que leen caracter a caracter el texto ingresado por el usuario con el fin de identificar léxicamnete la composición del escrito con relación al lenguaje MyFirst.
 
 Los automatas de cada uno de los tokens se pueden apreciar a través del siguiente enlace a Google Drive:
 ```
