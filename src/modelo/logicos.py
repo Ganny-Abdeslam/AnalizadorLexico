@@ -21,7 +21,9 @@ class Logicos:
             return text[0:2]
 
         return text[0]
+    
 
+    # Metodo para generar el token y comprobar que tipo de token es.
 
     def generacionToken(self,text) -> Token:
         var = self.comprobacion(text)

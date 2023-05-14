@@ -13,11 +13,13 @@ class Comentario:
 
         # En el primer if valida el tamaño de la cadena, y que el primer caracter sea un "?" hasta el 
         # primer salto de linea  
-        
+
         if len(text) <= 0 or text[0] in "\n":
             return ""
         
+        # Retorna la cadena en la posicion cero y una llamada recursiva con el resto de la cadena.
         return text[0] + self.comprobacion(text[1:])
+
 
     # Metodo para generar el token y comprobar que tipo de token es.
     def generacionToken(self,text) -> Token:
@@ -29,4 +31,4 @@ class Comentario:
          
         var = self.comprobacion(text[1:])
 
-        return Token(var+" ", Categoria.COMENTARIO)
+        return Token("?"+var+" ", Categoria.COMENTARIO)

@@ -27,17 +27,22 @@ class GeneracionTokens():
         if len(text) == 0 :
             return
         
+        # Generador de tokens de palabras reservadas
+        
         dato = PalabrasReservadas()
         
         if text[0].isalpha() :
             if self.acumulacionToken(dato, text):
                 return
 
+        # Generador de tokens de cadenas hexadecimales
         dato = Hexadecimal()
         
         if text[0].isdigit() or text[0] in 'ABCDEF':
             if self.acumulacionToken(dato, text):
                 return
+            
+        # Generador de tokens de enteros
         
         dato = Entero()
 
@@ -67,9 +72,6 @@ class GeneracionTokens():
             if self.acumulacionToken(dato, text):
                 return
             
-        
-        #Hace el llamado a la clase OperadorRelacional para validar si el operador es correcto.  
-        dato = OperadorRelacional()
 
         # Generador de tokens de operadores aritmeticos (+ - / % ^)
         dato = Aritmeticos()
@@ -113,6 +115,8 @@ class GeneracionTokens():
         if text[0] in '()[]{}':
             if self.acumulacionToken(dato, text):
                 return
+        
+        #Generador de tokens de cadena de caracteres
             
         dato = CadenaCaracteres()
 
@@ -120,12 +124,14 @@ class GeneracionTokens():
             if self.acumulacionToken(dato, text):
                 return
         
+        #Generador de tokens de comentarios
         dato = Comentario()
 
         if text[0] == '?':
             if self.acumulacionToken(dato, text):
                 return
         
+        #Generador de tokens no reconocidos
         dato = NoReconocido()
 
         if self.acumulacionToken(dato, text):
