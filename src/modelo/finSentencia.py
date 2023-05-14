@@ -1,3 +1,4 @@
+
 from modelo.token import Token
 from modelo.categoria import Categoria
 
