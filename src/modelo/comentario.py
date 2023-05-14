@@ -5,7 +5,15 @@ class Comentario:
     def __init__(self) -> None:
         pass
 
+    # Metodo para comprobar que los comentarios sea los correctos
+    # y no contenga caracteres que no pertenezcan al operador. 
+    # Simbolo: ??text
+
     def comprobacion(self,text) -> str:
+
+        # En el primer if valida el tamaño de la cadena, y que el primer caracter sea un "?" hasta el 
+        # primer salto de linea  
+        
         if len(text) <= 0 or text[0] in "\n":
             return ""
         
