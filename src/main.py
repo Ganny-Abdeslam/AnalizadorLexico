@@ -4,10 +4,11 @@ from interface.interfaz import MyWidget
 
 from modelo.categoria import Categoria
 
+# Se inicializa la aplicación
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
 
-    widget = MyWidget(Categoria.COMENTARIO_BLOQUE.getString())
+    widget = MyWidget("Aqui aparecen las weadas")
 
     widget.resize(600, 400)
     widget.show()
